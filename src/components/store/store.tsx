@@ -7,3 +7,7 @@ export const appStore = configureStore({
 });
 
 export type AppDispach = typeof appStore.dispatch;
+
+export type RootState = ReturnType<typeof appStore.getState>;
+
+// export type AppThunk
