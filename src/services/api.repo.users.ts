@@ -1,4 +1,4 @@
-import { serverUrl } from '../../config';
+import { serverUrl } from '../config';
 import { User, UserLogin } from '../entities/user';
 import { loginResponse } from '../types/login.response';
 
