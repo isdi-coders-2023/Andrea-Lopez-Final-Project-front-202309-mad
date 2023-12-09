@@ -26,7 +26,7 @@ export class UserApiRepo {
   async login(userLogin: UserLogin): Promise<loginResponse> {
     const url = this.apiUrl + '/login';
     const response = await fetch(url, {
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(userLogin),
       headers: {
         'Content-Type': 'application/json',
