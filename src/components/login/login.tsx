@@ -49,13 +49,7 @@ export function Login() {
           </form>
         )}
       </div>
-      {hasLogin && (
-        <div className="correct-login-container">
-          <div className="correct-login-text">
-            <p>🎉LOGIN CORRECTO🎉</p>
-          </div>
-        </div>
-      )}
+      {hasLogin && <div></div>}
     </>
   );
 }
