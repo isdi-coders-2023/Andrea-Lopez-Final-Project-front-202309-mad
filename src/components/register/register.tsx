@@ -1,5 +1,4 @@
 import { SyntheticEvent, useState } from 'react';
-import { User } from '../../entities/user';
 import { usersHook } from '../../hooks/users.hook';
 
 export function Register() {
@@ -9,16 +8,8 @@ export function Register() {
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     const formElement = event.target as HTMLFormElement;
-    const newUser = {
-      name: (formElement.elements.namedItem('name') as HTMLInputElement).value,
-      surname: (formElement.elements.namedItem('name') as HTMLInputElement)
-        .value,
-      email: (formElement.elements.namedItem('email') as HTMLInputElement)
-        .value,
-      passwd: (formElement.elements.namedItem('passwd') as HTMLInputElement)
-        .value,
-    } as Partial<User>;
-    register(newUser);
+    const formData = new FormData(formElement);
+    register(formData);
     setHasRegister(true);
   };
 

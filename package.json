@@ -17,7 +17,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "keywords": [],
-  "author": "Sergi Casiano",
+  "author": "Andrea López",
   "license": "ISC",
   "prettier": {
     "singleQuote": true
