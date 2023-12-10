@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User } from '../../entities/user';
 import { usersHook } from '../../hooks/users.hook';
-
+import './register.scss';
 export function Register() {
   const [hasRegister, setHasRegister] = useState(false);
   const { register } = usersHook();
@@ -25,29 +25,29 @@ export function Register() {
 
   return (
     <>
-      <h2>Create your new Account🎆</h2>
-
       {!hasRegister && (
         <form
           onSubmit={handleSubmit}
-          className="register-form"
+          className="container-register-form"
           aria-label="form"
         >
-          <label>Email</label>
-          <input type="email" name="email" required />
-          <label>Password</label>
-          <input type="password" name="passwd" required />
-          <label>Name</label>
-          <input type="text" name="name" required />
-          <label>Surname</label>
-          <input type="text" name="surname" required />
-          <div className="signup-button">
-            <button type="submit">Sign Up</button>
-          </div>
-          <div className="cancel-button">
-            <Link to={'/home/'}>
+          <div className="register-form">
+            <h2 className="register-tittle">SIGN UP🎆</h2>
+            <input type="email" name="email" placeholder="E-mail" required />
+            <input
+              type="password"
+              name="passwd"
+              placeholder="Password"
+              required
+            />
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="text" name="surname" placeholder="Surname" required />
+            <input type="text" name="age" placeholder="Age" required />
+
+            <div className="form-buttons">
+              <button type="submit">Sign Up</button>
               <button type="button">Back Home</button>
-            </Link>
+            </div>
           </div>
         </form>
       )}

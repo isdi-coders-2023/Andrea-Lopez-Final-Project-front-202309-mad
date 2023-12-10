@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { UserLogin } from '../../entities/user';
 import { usersHook } from '../../hooks/users.hook';
+import './login.scss';
 
 export function Login() {
   const [hasLogin, setHasLogin] = useState(false);
@@ -20,16 +20,15 @@ export function Login() {
   };
   return (
     <>
-      <div className="login-form-container">
-        <div className="login-form-h2">
-          <h2>Welcome Back, Log in</h2>
-        </div>
-        {!hasLogin && (
-          <form
-            onSubmit={handleSubmit}
-            className="login-form"
-            aria-label="form"
-          >
+      {!hasLogin && (
+        <form
+          onSubmit={handleSubmit}
+          className="container-login-form"
+          aria-label="form"
+        >
+          <div className="login-form">
+            <h2 className="login-tittle">LOGIN</h2>
+
             <input type="email" name="email" placeholder="Email" required />
             <input
               type="password"
@@ -40,10 +39,18 @@ export function Login() {
             <div className="login-buttons-container">
               <button type="submit">Your account</button>
             </div>
-          </form>
-        )}
-      </div>
-      {hasLogin && <div></div>}
+          </div>
+        </form>
+      )}
+
+      {hasLogin && (
+        <div>
+          {' '}
+          <Link to={'/home/'}>
+            <button type="button">HOME</button>
+          </Link>
+        </div>
+      )}
     </>
   );
 }
