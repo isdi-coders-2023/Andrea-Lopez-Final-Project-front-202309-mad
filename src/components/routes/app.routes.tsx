@@ -1,16 +1,19 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-const Register = lazy(() => import('../../pages/register'));
-const Login = lazy(() => import('../../pages/login'));
+const RegisterPage = lazy(() => import('../../pages/register.page'));
+const LoginPage = lazy(() => import('../../pages/login.page'));
 
 export function AppRoutes() {
   return (
     <main>
       <Suspense>
         <Routes>
-          <Route path="/register" element={<Register></Register>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
+          <Route
+            path="/register"
+            element={<RegisterPage></RegisterPage>}
+          ></Route>
+          <Route path="/login" element={<LoginPage></LoginPage>}></Route>
         </Routes>
       </Suspense>
     </main>

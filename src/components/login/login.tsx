@@ -22,7 +22,7 @@ export function Login() {
     <>
       <div className="login-form-container">
         <div className="login-form-h2">
-          <h2>HOLA</h2>
+          <h2>Welcome Back, Log in</h2>
         </div>
         {!hasLogin && (
           <form
@@ -38,13 +38,7 @@ export function Login() {
               required
             />
             <div className="login-buttons-container">
-              <button type="submit">INGRESAR CUENTA</button>
-              <Link
-                to={'/register/'}
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                <p>¿Aún no tienes cuenta?</p>
-              </Link>
+              <button type="submit">Your account</button>
             </div>
           </form>
         )}
