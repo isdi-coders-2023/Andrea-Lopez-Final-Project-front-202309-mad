@@ -26,30 +26,37 @@ export function Register() {
   return (
     <>
       {!hasRegister && (
-        <form
-          onSubmit={handleSubmit}
-          className="container-register-form"
-          aria-label="form"
-        >
-          <div className="register-form">
-            <h2 className="register-tittle">SIGN UP🎆</h2>
-            <input type="email" name="email" placeholder="E-mail" required />
-            <input
-              type="password"
-              name="passwd"
-              placeholder="Password"
-              required
-            />
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="text" name="surname" placeholder="Surname" required />
-            <input type="text" name="age" placeholder="Age" required />
+        <div className="super-container">
+          <form
+            onSubmit={handleSubmit}
+            className="container-register-form"
+            aria-label="form"
+          >
+            <div className="register-form">
+              <h2 className="register-tittle">SIGN UP🎆</h2>
+              <input type="email" name="email" placeholder="E-mail" required />
+              <input
+                type="password"
+                name="passwd"
+                placeholder="Password"
+                required
+              />
+              <input type="text" name="name" placeholder="Name" required />
+              <input
+                type="text"
+                name="surname"
+                placeholder="Surname"
+                required
+              />
+              <input type="text" name="age" placeholder="Age" required />
 
-            <div className="form-buttons">
-              <button type="submit">Sign Up</button>
-              <button type="button">Back Home</button>
+              <div className="form-buttons">
+                <button type="submit">Sign Up</button>
+                <button type="button">Back Home</button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       )}
       {hasRegister && (
         <div>

@@ -2,6 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { UserLogin } from '../../entities/user';
 import { usersHook } from '../../hooks/users.hook';
 import './login.scss';
+import { Link } from 'react-router-dom';
 
 export function Login() {
   const [hasLogin, setHasLogin] = useState(false);
@@ -42,10 +43,8 @@ export function Login() {
           </div>
         </form>
       )}
-
       {hasLogin && (
         <div>
-          {' '}
           <Link to={'/home/'}>
             <button type="button">HOME</button>
           </Link>

@@ -11,6 +11,7 @@
     "build:ts": "tsc -w",
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --watchAll=false --coverage --passWithNoTests",
+    "test:f": "jest --watchAll --coverage",
     "prepare": "husky install",
     "sass": "sass scss:css -w --no-source-map",
     "api": "json-server --watch ./api/db.json",
