@@ -7,7 +7,8 @@ export function App() {
   return (
     <>
       <Header></Header>
-      <AppRoutes></AppRoutes>;<Footer></Footer>
+      <AppRoutes></AppRoutes>
+      <Footer></Footer>
     </>
   );
 }

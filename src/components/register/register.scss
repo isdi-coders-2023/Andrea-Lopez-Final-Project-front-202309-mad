@@ -4,18 +4,16 @@
   flex-direction: column;
   align-items: center;
   background-color: #1c1a1d;
-
-  // min-height: 100vh;
 }
 .register-form {
-  padding: 80px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: url('../../../formcontainer.png') center/cover no-repeat;
-  width: 500px;
-  height: 500px;
-  flex-shrink: 0;
+  width: 420px;
+  height: 420px;
+
   .register-tittle {
     font-family: Kanit;
     font-size: 18px;

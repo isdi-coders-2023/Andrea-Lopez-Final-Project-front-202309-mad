@@ -15,7 +15,7 @@ export function Header() {
         />
       </div>
       <Link to={'/home'}>
-        <p>klk</p>
+        <p>HOLA ESTO ES UN LINK</p>
       </Link>
     </header>
   );

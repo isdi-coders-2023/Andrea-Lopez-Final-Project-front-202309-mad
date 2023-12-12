@@ -1,3 +1,17 @@
 footer {
   background-color: #1c1a1d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px;
+  p {
+    color: #00be68;
+    margin: 0;
+    font-size: 20px;
+    margin-left: 2rem;
+  }
+  img {
+    margin-right: 20px;
+    margin-bottom: 2rem;
+  }
 }
