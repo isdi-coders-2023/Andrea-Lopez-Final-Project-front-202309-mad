@@ -26,9 +26,14 @@ const userSlice = createSlice({
     logout: (state: UserState) => {
       state.loggedUser = null;
       state.token = '';
+      return state;
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(loginThunk.pending, (state: UserState) => {
+      state.loggingState = 'logging';
+    });
+
     builder.addCase(
       loginThunk.fulfilled,
       (state: UserState, { payload }: PayloadAction<loginResponse>) => {
@@ -37,9 +42,7 @@ const userSlice = createSlice({
         state.loggingState = 'idle'; // Set the logging state back to idle
       }
     );
-    builder.addCase(loginThunk.pending, (state: UserState) => {
-      state.loggingState = 'logging';
-    });
+
     builder.addCase(loginThunk.rejected, (state: UserState) => {
       state.loggingState = 'error';
     });

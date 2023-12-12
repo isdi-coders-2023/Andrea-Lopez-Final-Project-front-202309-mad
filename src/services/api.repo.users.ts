@@ -38,17 +38,4 @@ export class UsersRepo {
       throw new Error(response.status + ' ' + response.statusText);
     return response.json();
   }
-
-  // async loginWithToken(token: string): Promise<LoginResponse> {
-  //   const url = this.apiUrl + '/login';
-  //   const response = await fetch(url, {
-  //     method: 'PATCH',
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   if (!response.ok)
-  //     throw new Error(response.status + ' ' + response.statusText);
-  //   return response.json();
-  // }
 }

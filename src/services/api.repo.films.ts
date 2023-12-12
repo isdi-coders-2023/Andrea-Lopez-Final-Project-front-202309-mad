@@ -29,21 +29,21 @@ export class FilmsRepo {
 
   async updateFilm(id: Film['id'], updatedItem: Partial<Film>): Promise<Film> {
     const finalUrl = `${this.apiUrl}/${id}`;
-    const response = await fetch(this.finalUrl, {
+    const response = await fetch(finalUrl, {
       method: 'POST',
       body: JSON.stringify(updatedItem),
-      headers: { Authorization: 'Bearer' },
+      headers: { Authorization: 'Bearer' + this.token },
     });
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
     return response.json();
   }
 
-  deleteFilm(id: Film['id']): Promise<Film[]> {
+  async deleteFilm(id: Film['id']): Promise<Film[]> {
     const finalUrl = `${this.apiUrl}/${id}`;
-    const response = await fetch(this.finalUrl, {
-      method: 'POST',
-      headers: { Authorization: 'Bearer' },
+    const response = await fetch(finalUrl, {
+      method: 'DELETE',
+      headers: { Authorization: 'Bearer' + this.token },
     });
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
