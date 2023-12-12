@@ -5,13 +5,13 @@ import { loginResponse } from '../types/login.response';
 
 type LoginState = 'idle' | 'logging' | 'error';
 
-type UserState = {
+export type UsersState = {
   loggedUser: User | null; // guardamos
   loggingState: LoginState;
   token: string; // token
 };
 
-const initial: UserState = {
+const initialState: UsersState = {
   loggedUser: null,
   loggingState: 'idle',
   token: '', // cadena vacia ya que es el nulo de lo string
@@ -19,35 +19,35 @@ const initial: UserState = {
 
 // estado de log in y log out
 
-const userSlice = createSlice({
+const usersSlice = createSlice({
   name: 'users',
-  initialState: initial,
+  initialState: initialState,
   reducers: {
-    logout: (state: UserState) => {
+    logout: (state: UsersState) => {
       state.loggedUser = null;
       state.token = '';
       return state;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loginThunk.pending, (state: UserState) => {
+    builder.addCase(loginThunk.pending, (state: UsersState) => {
       state.loggingState = 'logging';
     });
 
     builder.addCase(
       loginThunk.fulfilled,
-      (state: UserState, { payload }: PayloadAction<loginResponse>) => {
+      (state: UsersState, { payload }: PayloadAction<loginResponse>) => {
         state.loggedUser = payload.user;
         state.token = payload.token;
         state.loggingState = 'idle'; // Set the logging state back to idle
       }
     );
 
-    builder.addCase(loginThunk.rejected, (state: UserState) => {
+    builder.addCase(loginThunk.rejected, (state: UsersState) => {
       state.loggingState = 'error';
     });
   },
 });
 
-export default userSlice.reducer;
-export const actions = userSlice.actions;
+export default usersSlice.reducer;
+export const actions = usersSlice.actions;
