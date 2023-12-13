@@ -1,4 +1,4 @@
-import { Film } from '../entities/film';
+import { Film } from '../../entities/film';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export type FilmsState = {

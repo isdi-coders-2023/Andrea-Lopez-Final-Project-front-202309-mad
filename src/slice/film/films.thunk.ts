@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { FilmsRepo } from '../services/api.repo.films';
-import { Film } from '../entities/film';
+import { FilmsRepo } from '../../services/api.repo.films';
+import { Film } from '../../entities/film';
 
 // get all, create, update y delete
 

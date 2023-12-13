@@ -1,23 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '../entities/user';
+import { User } from '../../entities/user';
 import { loginThunk } from './users.thunk';
-import { loginResponse } from '../types/login.response';
+import { loginResponse } from '../../types/login.response';
 
 type LoginState = 'idle' | 'logging' | 'error';
 
 export type UsersState = {
-  loggedUser: User | null; // guardamos
+  loggedUser: User | null;
   loggingState: LoginState;
-  token: string; // token
+  token: string;
 };
 
 const initialState: UsersState = {
   loggedUser: null,
   loggingState: 'idle',
-  token: '', // cadena vacia ya que es el nulo de lo string
+  token: '',
 };
-
-// estado de log in y log out
 
 const usersSlice = createSlice({
   name: 'users',
@@ -39,7 +37,7 @@ const usersSlice = createSlice({
       (state: UsersState, { payload }: PayloadAction<loginResponse>) => {
         state.loggedUser = payload.user;
         state.token = payload.token;
-        state.loggingState = 'idle'; // Set the logging state back to idle
+        state.loggingState = 'idle';
       }
     );
 

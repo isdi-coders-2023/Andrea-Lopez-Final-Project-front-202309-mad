@@ -1,9 +1,10 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
-import usersReducer from '../slice/users.slice';
+import usersReducer from '../slice/user/users.slice';
 
 export const store = configureStore({
   reducer: {
-    usersState: usersReducer, // los reducer se crean en el slice
+    usersState: usersReducer,
+    // filmsState: filmsReducer,
   },
 });
 
