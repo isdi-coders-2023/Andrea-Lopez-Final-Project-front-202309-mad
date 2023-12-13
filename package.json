@@ -11,13 +11,14 @@
     "build:ts": "tsc -w",
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --watchAll=false --coverage --passWithNoTests",
+    "test:f": "jest --watchAll --coverage",
     "prepare": "husky install",
     "sass": "sass scss:css -w --no-source-map",
     "api": "json-server --watch ./api/db.json",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "keywords": [],
-  "author": "Sergi Casiano",
+  "author": "Andrea López",
   "license": "ISC",
   "prettier": {
     "singleQuote": true
@@ -55,7 +56,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.1",
-    "react-router-dom": "^6.18.0",
-    "sweetalert2": "^11.10.1"
+    "react-fast-marquee": "^1.6.2",
+    "react-router-dom": "^6.18.0"
   }
 }

@@ -2,10 +2,11 @@ import { serverUrl } from '../config';
 import { User, UserLogin } from '../entities/user';
 import { loginResponse } from '../types/login.response';
 
-export class UserApiRepo {
+export class UsersRepo {
   apiUrl = serverUrl + '/users';
 
-  async getUser(): Promise<User[]> {
+  // Creo que no es necesario ponerla
+  async getUsers(): Promise<User[]> {
     const response = await fetch(this.apiUrl);
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
@@ -17,17 +18,18 @@ export class UserApiRepo {
     const response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(newUser),
+      headers: { 'Content-type': 'application/json' },
     });
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
     return response.json();
   }
-  // Tiene que haber un multer esperando en el back
-  async login(userLogin: UserLogin): Promise<loginResponse> {
+
+  async login(loginUser: UserLogin): Promise<loginResponse> {
     const url = this.apiUrl + '/login';
     const response = await fetch(url, {
-      method: 'PATCH',
-      body: JSON.stringify(userLogin),
+      method: 'POST',
+      body: JSON.stringify(loginUser),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -37,5 +39,3 @@ export class UserApiRepo {
     return response.json();
   }
 }
-
-// registro y login conectados

@@ -1,17 +1,14 @@
 // app.component.jsx
-import { useEffect } from 'react';
-import { usersHook } from '../../hooks/users.hook';
+import { Footer } from '../footer/footer';
+import { Header } from '../header/header';
 import { AppRoutes } from '../routes/app.routes';
 
 export function App() {
-  const { login } = usersHook();
-
-  useEffect(() => {
-    login({
-      email: '',
-      passwd: '',
-    });
-  }, []);
-
-  return <AppRoutes></AppRoutes>;
+  return (
+    <>
+      <Header></Header>
+      <AppRoutes></AppRoutes>
+      <Footer></Footer>
+    </>
+  );
 }
