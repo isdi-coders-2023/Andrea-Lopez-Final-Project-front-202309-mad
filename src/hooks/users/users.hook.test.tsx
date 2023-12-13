@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { useDispatch } from 'react-redux';
-import { User, UserLogin } from '../entities/user';
+import { User, UserLogin } from '../../entities/user';
 import { usersHook } from './users.hook';
-import { UsersRepo } from '../services/api.repo.users';
+import { UsersRepo } from '../../services/api.repo.users';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),

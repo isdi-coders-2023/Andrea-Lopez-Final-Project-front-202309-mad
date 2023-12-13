@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User } from '../../entities/user';
-import { usersHook } from '../../hooks/users.hook';
+import { usersHook } from '../../hooks/users/users.hook';
 import './register.scss';
 export function Register() {
   const [hasRegister, setHasRegister] = useState(false);
