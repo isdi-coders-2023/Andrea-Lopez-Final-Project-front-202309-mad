@@ -1,0 +1,28 @@
+// .hola {
+//   display: flex;
+
+//   gap: 10px;
+// }
+
+article {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+}
+
+.card-container {
+  padding: 10px;
+}
+
+.card-title,
+.card-director {
+  margin-bottom: 5px;
+}
+
+.text-title,
+.text-director {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
