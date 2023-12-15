@@ -15,8 +15,8 @@ export function Card({ film }: Props) {
             <img
               src={film.image.cloudinaryURL}
               alt={`imagen de ${film.title} `}
-              width="200"
-              height="auto"
+              width="300"
+              height="400"
             />
           </figure>
         </article>

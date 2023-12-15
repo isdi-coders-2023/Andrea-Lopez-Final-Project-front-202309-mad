@@ -1,15 +1,16 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { UserLogin } from '../../entities/user';
 import { usersHook } from '../../hooks/users/users.hook';
 import './login.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
-  const [hasLogin, setHasLogin] = useState(false);
-  const { login } = usersHook();
+  const { login, loggedUser } = usersHook();
+  const navigate = useNavigate();
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
+
     const formElement = event.target as HTMLFormElement;
     const formData = new FormData(formElement);
     const loginUser: UserLogin = {
@@ -17,39 +18,34 @@ export function Login() {
       passwd: formData.get('passwd')?.toString() as string,
     };
     login(loginUser);
-    setHasLogin(true);
   };
+  useEffect(() => {
+    if (loggedUser) {
+      navigate('/home');
+    }
+  }, [loggedUser]);
   return (
     <>
-      {!hasLogin && (
-        <form
-          onSubmit={handleSubmit}
-          className="container-login-form"
-          aria-label="form"
-        >
-          <div className="login-form">
-            <h2 className="login-tittle">LOGIN</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="container-login-form"
+        aria-label="form"
+      >
+        <div className="login-form">
+          <h2 className="login-tittle">LOGIN</h2>
 
-            <input type="email" name="email" placeholder="Email" required />
-            <input
-              type="password"
-              name="passwd"
-              placeholder="Contraseña"
-              required
-            />
-            <div className="login-buttons-container">
-              <button type="submit">Your account</button>
-            </div>
+          <input type="email" name="email" placeholder="Email" required />
+          <input
+            type="password"
+            name="passwd"
+            placeholder="Contraseña"
+            required
+          />
+          <div className="login-buttons-container">
+            <button type="submit">Your account</button>
           </div>
-        </form>
-      )}
-      {hasLogin && (
-        <div>
-          <Link to={'/home/'}>
-            <button type="button">HOME</button>
-          </Link>
         </div>
-      )}
+      </form>
     </>
   );
 }

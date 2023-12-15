@@ -1,28 +1,26 @@
-.container-register-form {
+.container-create-form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   background-color: #1c1a1d;
 }
-.register-form {
+.create-form {
   padding: 60px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   background: url('../../../formcontainer.png') center/cover no-repeat;
-  width: 420px;
-  height: 420px;
-
-  .h3 {
-    font-family: Kanit;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: #e0d4bd;
-  }
+  width: 500px;
+  height: 500px;
+}
+.form-create-tittle {
+  font-family: Kanit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #e0d4bd;
 }
 
 input {

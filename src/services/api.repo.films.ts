@@ -15,7 +15,7 @@ export class FilmsRepo {
   async createFilm(newFilm: FormData): Promise<Film> {
     const response = await fetch(this.apiUrl, {
       method: 'POST',
-      body: JSON.stringify(newFilm),
+      body: newFilm,
       headers: { Authorization: 'Bearer ' + this.token },
     });
     if (!response.ok)
@@ -23,26 +23,28 @@ export class FilmsRepo {
     return response.json();
   }
 
-  // async updateFilm(id: Film['id'], updatedItem: Partial<Film>): Promise<Film> {
-  //   const finalUrl = `${this.apiUrl}/${id}`;
-  //   const response = await fetch(finalUrl, {
-  //     method: 'POST',
-  //     body: JSON.stringify(updatedItem),
-  //     headers: { Authorization: 'Bearer' + this.token },
-  //   });
-  //   if (!response.ok)
-  //     throw new Error(response.status + ' ' + response.statusText);
-  //   return response.json();
-  // }
-
-  // async deleteFilm(id: Film['id']): Promise<Film[]> {
-  //   const finalUrl = `${this.apiUrl}/${id}`;
-  //   const response = await fetch(finalUrl, {
-  //     method: 'DELETE',
-  //     headers: { Authorization: 'Bearer' + this.token },
-  //   });
-  //   if (!response.ok)
-  //     throw new Error(response.status + ' ' + response.statusText);
-  //   return response.json();
-  // }
+  async updateFilm(id: string, updatedFilm: FormData): Promise<Film> {
+    const finalUrl = `${this.apiUrl}/${id}`;
+    const response = await fetch(finalUrl, {
+      method: 'POST',
+      body: updatedFilm,
+      headers: {
+        Authorization: 'Bearer ' + this.token,
+      },
+    });
+    if (!response.ok)
+      throw new Error(response.status + ' ' + response.statusText);
+    return response.json();
+  }
 }
+
+// async deleteFilm(id: Film['id']): Promise<Film[]> {
+//   const finalUrl = `${this.apiUrl}/${id}`;
+//   const response = await fetch(finalUrl, {
+//     method: 'DELETE',
+//     headers: { Authorization: 'Bearer' + this.token },
+//   });
+//   if (!response.ok)
+//     throw new Error(response.status + ' ' + response.statusText);
+//   return response.json();
+// }

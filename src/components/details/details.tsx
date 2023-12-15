@@ -6,6 +6,9 @@ export default function Details() {
 
   return (
     <div className="hola">
+      {/* <div className="film-image">
+        <p className="film-image">{currentFilm?.image.cloudinaryURL}</p>
+      </div> */}
       <div className="film-title">
         <p className="film-title">{currentFilm?.title}</p>
       </div>
