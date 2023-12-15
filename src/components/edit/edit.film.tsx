@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useFilms } from '../../hooks/film/use.films';
 import { SyntheticEvent, useEffect, useState } from 'react';
+import './edit.film.scss';
 
 export default function EditFilm() {
   const navigate = useNavigate();
@@ -31,12 +32,12 @@ export default function EditFilm() {
 
   return (
     <>
-      <div className="container-create-form">
-        <div className="form-create-tittle">
+      <div className="container-edit-form">
+        <div className="form-edit-tittle">
           <h3>Edit Film</h3>
         </div>
         <form
-          className="create-form"
+          className="edit-form"
           onSubmit={handleUpdateFilm}
           aria-label="form"
         >
@@ -54,7 +55,6 @@ export default function EditFilm() {
             value={film?.director}
             onChange={handleInputChange}
             placeholder="director"
-            required
           />
           <input
             type="text"

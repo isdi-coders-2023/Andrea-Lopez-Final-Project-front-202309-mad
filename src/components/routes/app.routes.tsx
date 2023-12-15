@@ -24,7 +24,7 @@ export function AppRoutes() {
           <Route path="/profile" element={<Profile></Profile>}></Route>
           <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="/addfilm" element={<AddFilm></AddFilm>}></Route>
-          <Route path="/editfilm" element={<EditFilm></EditFilm>}></Route>
+          <Route path="/editfilm/:id" element={<EditFilm></EditFilm>}></Route>
         </Routes>
       </Suspense>
     </main>
