@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import './details.scss';
 
 export default function Details() {
   const { currentFilm } = useSelector((state: RootState) => state.filmsState);
 
   return (
-    <div className="hola">
+    <div className="details-container">
       {/* <div className="film-image">
         <p className="film-image">{currentFilm?.image.cloudinaryURL}</p>
       </div> */}

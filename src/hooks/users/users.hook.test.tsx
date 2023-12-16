@@ -1,27 +1,29 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import { useDispatch } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
+import userEvent from '@testing-library/user-event';
 import { User, UserLogin } from '../../entities/user';
 import { usersHook } from './users.hook';
+import { store } from '../../store/store';
 import { UsersRepo } from '../../services/api.repo.users';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn().mockReturnValue(jest.fn()),
-  useSelector: jest.fn().mockReturnValue(jest.fn()),
 }));
 
 const mockLoginUser = {} as UserLogin;
 const mockNewUser = {} as Partial<User>;
-describe('Given usersHook Hook', () => {
-  const TestComponent = () => {
-    const { logout, login, register } = usersHook();
+
+describe('Given user Hook', () => {
+  const TestComponents = () => {
+    const { login, logout, register } = usersHook();
 
     return (
       <>
         <button onClick={() => logout()}></button>
-        <button onClick={() => login(mockLoginUser)}> </button>
-        <button onClick={() => register(mockNewUser)}> </button>
+        <button onClick={() => login(mockLoginUser)}></button>
+        <button onClick={() => register(mockNewUser)}></button>
       </>
     );
   };
@@ -29,38 +31,32 @@ describe('Given usersHook Hook', () => {
   let elements: HTMLElement[];
 
   beforeEach(() => {
-    render(<TestComponent></TestComponent>);
+    render(
+      <Provider store={store}>
+        <TestComponents></TestComponents>
+      </Provider>
+    );
     elements = screen.getAllByRole('button');
   });
 
-  const testButtonClick = async (
-    buttonIndex: number,
-    mockStorageValue?: string
-  ) => {
-    if (mockStorageValue) {
-      Storage.prototype.get = jest.fn().mockReturnValue(mockStorageValue);
-    }
-    await userEvent.click(elements[buttonIndex]);
-    expect(useDispatch()).toHaveBeenCalled();
-  };
-
-  describe('When we click button logout', () => {
+  describe('When an user logout', () => {
     test('Then the dispatch should have been called', async () => {
-      await testButtonClick(0);
+      await userEvent.click(elements[0]);
+      expect(useDispatch()).toHaveBeenCalled();
     });
   });
 
-  describe('When we click button login', () => {
+  describe('When an user login', () => {
     test('Then the dispatch should have been called', async () => {
-      await testButtonClick(1);
+      await userEvent.click(elements[1]);
+      expect(useDispatch()).toHaveBeenCalled();
     });
   });
 
-  describe('When we click button register ', () => {
-    test('Then the dispacht should have been called', async () => {
+  describe('When an user register', () => {
+    test('Then the dispatch should have been called', async () => {
       UsersRepo.prototype.createUser = jest.fn();
-
-      await userEvent.click(elements[3]);
+      await userEvent.click(elements[2]);
       expect(useDispatch()).toHaveBeenCalled();
     });
   });

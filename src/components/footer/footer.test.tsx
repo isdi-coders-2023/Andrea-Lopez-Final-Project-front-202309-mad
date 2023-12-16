@@ -15,7 +15,7 @@ describe('Given Footer class..', () => {
   );
   describe('When we instantiate Footer', () => {
     test('Then it should be in the document', () => {
-      const element = screen.getAllByRole('footer');
+      const element = screen.getAllByRole('img');
       expect(element).toBeInTheDocument();
     });
   });
