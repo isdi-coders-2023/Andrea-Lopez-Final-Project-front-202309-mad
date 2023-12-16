@@ -1,22 +1,26 @@
+import { Link } from 'react-router-dom';
 import { Film } from '../../entities/film';
 import { useFilms } from '../../hooks/film/use.films';
 import EditFilm from '../edit/edit.film';
 import './card.scss';
-import { Link } from 'react-router-dom';
 
 type Props = {
   film: Film;
 };
 
 export function Card({ film }: Props) {
-  const { handleDetailsPage } = useFilms();
+  const { handleDetailsPage, deleteFilm } = useFilms();
 
   const handleUpdateFilm = () => {
     return <EditFilm></EditFilm>;
   };
+
+  const handleDeleteFilm = () => {
+    deleteFilm(film.id);
+  };
   return (
     <>
-      <div className="edit-button-container">
+      <div className="edit-buttons">
         <Link to={'/editfilm/' + film.id}>
           <img
             onClick={handleUpdateFilm}
@@ -25,6 +29,14 @@ export function Card({ film }: Props) {
             alt="edit-icon"
           />
         </Link>
+      </div>
+      <div className="delete-button">
+        <img
+          onClick={handleDeleteFilm}
+          role="button"
+          src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702749800/editar_uenexn.png "
+          alt="delete-icon"
+        />
       </div>
 
       <div className="hola">

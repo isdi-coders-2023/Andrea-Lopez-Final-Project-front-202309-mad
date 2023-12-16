@@ -33,3 +33,14 @@ export const updateFilmsThunk = createAsyncThunk<
   const finalFilm = await repo.updateFilm(id, updateFilm);
   return finalFilm;
 });
+
+export const deleteFilmsThunk = createAsyncThunk<
+  Film['id'],
+  {
+    repo: FilmsRepo;
+    id: Film['id'];
+  }
+>('delete', async ({ repo, id }) => {
+  await repo.deleteFilm(id);
+  return id;
+});

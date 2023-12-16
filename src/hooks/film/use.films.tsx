@@ -6,6 +6,7 @@ import {
   loadFilmsThunk,
   createFilmThunk,
   updateFilmsThunk,
+  deleteFilmsThunk,
 } from '../../slice/film/films.thunk';
 import { Film } from '../../entities/film';
 import { setCurrentFilm } from '../../slice/film/films.slice';
@@ -59,6 +60,15 @@ export function useFilms() {
     dispatch(setCurrentFilm(film));
   };
 
+  const deleteFilm = async (id: Film['id']) => {
+    dispatch(
+      deleteFilmsThunk({
+        repo,
+        id,
+      })
+    );
+  };
+
   return {
     loadFilms,
     handleDetailsPage,
@@ -67,5 +77,6 @@ export function useFilms() {
     updateFilm,
     currentFilm,
     handleCurrentFilm,
+    deleteFilm,
   };
 }
