@@ -46,4 +46,10 @@ export class FilmsRepo {
       throw new Error(response.status + ' ' + response.statusText);
     return response.json();
   }
+  async getFilmsByPage(pageNumber: string): Promise<Film[]> {
+    const response = await fetch(this.apiUrl + `/page/${pageNumber}`);
+    if (!response.ok)
+      throw new Error(response.status + ' ' + response.statusText);
+    return response.json();
+  }
 }
