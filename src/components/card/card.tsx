@@ -25,7 +25,9 @@ export function Card({ film }: Props) {
           <img
             onClick={handleUpdateFilm}
             role="button"
-            src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702749800/editar_uenexn.png "
+            width="19"
+            height="17"
+            src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702840689/edit_button_jijeof.png"
             alt="edit-icon"
           />
         </Link>
@@ -34,12 +36,14 @@ export function Card({ film }: Props) {
         <img
           onClick={handleDeleteFilm}
           role="button"
-          src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702749800/editar_uenexn.png "
+          width="19"
+          height="17"
+          src=" https://res.cloudinary.com/dgnncaecc/image/upload/v1702841652/trash_xulhgx.png"
           alt="delete-icon"
         />
       </div>
 
-      <div className="hola">
+      <div className="card-container">
         <Link to={'/details/' + film.id} style={{ textDecoration: 'none' }}>
           <article>
             <figure>
