@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import './header.home.scss';
+import AddButton from '../create/add.button';
 
 export function HeaderHome() {
   const { loggedUser } = useSelector((state: RootState) => state.usersState);
+  const location = useLocation();
+  const isUserFilmsRoute = location.pathname === '/profile/';
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -12,35 +17,40 @@ export function HeaderHome() {
           <div className="login-home-button">
             <Link to={'/login'}>
               <img
-                src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702759665/robot_login_ie3qw0.png"
+                className="button-login-img"
+                src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702832372/User_Button_sef25g.png"
                 alt="Login icon"
                 role="button"
-                width="35"
-                height="auto"
+                width="33"
+                height="30"
               />
             </Link>
-
-            <p className="p-login">LOG IN</p>
           </div>
 
           <div className="register-home-button">
             <Link to={'/register'}>
               <img
-                src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702763497/register_icon_kcbutt.png"
+                src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702832589/Vector-removebg-preview_l36boq.png"
                 alt="Register icon"
                 role="button"
-                width="35"
-                height="auto"
+                width="33"
+                height="30"
               />
             </Link>
-            <p className="p-singup">SIGN UP</p>
           </div>
         </>
       )}
       {loggedUser && (
-        <Link to={'/addfilm/'}>
-          <p>AÑADIR LOG OUT</p>
-        </Link>
+        <div>
+          <div>
+            <AddButton></AddButton>
+          </div>
+
+          <p>Hola {loggedUser.name}</p>
+          {!isUserFilmsRoute && (
+            <button onClick={() => navigate('/profile/')}>MY LIST</button>
+          )}
+        </div>
       )}
     </div>
   );

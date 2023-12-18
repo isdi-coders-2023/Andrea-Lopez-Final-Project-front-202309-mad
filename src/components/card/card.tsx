@@ -57,7 +57,7 @@ export function Card({ film }: Props) {
             </figure>
           </article>
         </Link>
-        <div className="card-container">
+        <div className="card-container-text">
           <div className="card-title">
             <p className="text-title">{film.title}</p>
           </div>

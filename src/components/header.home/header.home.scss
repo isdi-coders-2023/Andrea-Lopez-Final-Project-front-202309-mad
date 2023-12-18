@@ -1,0 +1,29 @@
+.login-home-button,
+.register-home-button,
+p {
+  color: #00be68;
+  flex-direction: row-reverse;
+}
+
+.login-home-button,
+.register-home-button {
+  display: flex;
+  // align-items: center;
+}
+
+.button-login-img {
+  margin-right: 8px;
+}
+
+.p-login,
+.p-singup {
+  margin: 0;
+}
+
+.register-home-button {
+  margin-top: 10px;
+}
+
+p {
+  cursor: pointer;
+}

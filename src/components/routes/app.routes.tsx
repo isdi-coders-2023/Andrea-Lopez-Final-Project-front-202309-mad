@@ -7,7 +7,7 @@ const HomePage = lazy(() => import('../../pages/home.page'));
 const Details = lazy(() => import('../details/details'));
 const AddFilm = lazy(() => import('../create/add.film'));
 const EditFilm = lazy(() => import('../edit/edit.film'));
-
+// const Profile = lazy(() => import('../profile'));
 export function AppRoutes() {
   return (
     <main>
@@ -20,7 +20,11 @@ export function AppRoutes() {
           <Route path="/login" element={<LoginPage></LoginPage>}></Route>
           <Route path="/" element={<HomePage></HomePage>}></Route>
           <Route path="/home" element={<HomePage></HomePage>}></Route>
-
+          <Route
+            path="/home/page/:page"
+            element={<HomePage></HomePage>}
+          ></Route>
+          {/* <Route path="/profile" element={<Profile></Profile>}></Route>{' '} */}
           <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="/addfilm" element={<AddFilm></AddFilm>}></Route>
           <Route path="/editfilm/:id" element={<EditFilm></EditFilm>}></Route>
