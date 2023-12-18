@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
 import './header.scss';
+import { HeaderHome } from '../header.home/header.home';
 
 export function Header() {
   const cloudinaryImageUrl =
     'https://res.cloudinary.com/dgnncaecc/image/upload/v1702295124/Header_Logo_ql4vnu.png';
+
   return (
     <header>
       <div className="logo-container">
@@ -11,12 +12,10 @@ export function Header() {
           src={cloudinaryImageUrl}
           alt="Header Logo"
           width="100"
-          height="auto"
+          height="100"
         />
       </div>
-      <Link to={'/home'}>
-        <p>HOLA ESTO ES UN LINK</p>
-      </Link>
+      <HeaderHome></HeaderHome>
     </header>
   );
 }

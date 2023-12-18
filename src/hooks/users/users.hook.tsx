@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispach, RootState } from '../store/store';
-import { User, UserLogin } from '../entities/user';
-import { loginThunk } from '../slice/user/users.thunk';
-import { actions } from '../slice/user/users.slice';
-import { UsersRepo } from '../services/api.repo.users';
+import { RootState } from '../../store/store';
+import { User, UserLogin } from '../../entities/user';
+import { loginThunk } from '../../slice/user/users.thunk';
+import { actions } from '../../slice/user/users.slice';
+import { UsersRepo } from '../../services/api.repo.users';
+import { AppDispatch } from '../../store/store';
 export function usersHook() {
-  const dispatch = useDispatch<AppDispach>();
+  const dispatch = useDispatch<AppDispatch>();
   const repo = new UsersRepo();
   const { loggedUser } = useSelector((state: RootState) => state.usersState);
 
@@ -20,6 +21,10 @@ export function usersHook() {
   const logout = () => {
     dispatch(actions.logout());
   };
+
+  // const updateCurrentFilm = (id: string) => {
+  //   dispatch(updateUserThunk({ repo: repo, id: id }));
+  // };
 
   return {
     register,

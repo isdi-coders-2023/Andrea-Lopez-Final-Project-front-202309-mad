@@ -8,7 +8,7 @@ type LoginState = 'idle' | 'logging' | 'error';
 export type UsersState = {
   loggedUser: User | null;
   loggingState: LoginState;
-  token: string;
+  token: string | null;
 };
 
 const initialState: UsersState = {
@@ -23,8 +23,7 @@ const usersSlice = createSlice({
   reducers: {
     logout: (state: UsersState) => {
       state.loggedUser = null;
-      state.token = '';
-      return state;
+      state.token = null;
     },
   },
   extraReducers: (builder) => {
@@ -37,7 +36,6 @@ const usersSlice = createSlice({
       (state: UsersState, { payload }: PayloadAction<loginResponse>) => {
         state.loggedUser = payload.user;
         state.token = payload.token;
-        state.loggingState = 'idle';
       }
     );
 

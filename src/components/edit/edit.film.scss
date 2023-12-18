@@ -1,0 +1,30 @@
+.container-edit-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1c1a1d;
+}
+.edit-form {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('../../../formcontainer.png') center/cover no-repeat;
+  width: 550px;
+  height: 550px;
+}
+.form-edit-tittle {
+  font-family: Kanit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #e0d4bd;
+}
+
+input {
+  width: 245px;
+  height: 51px;
+  flex-shrink: 0;
+}

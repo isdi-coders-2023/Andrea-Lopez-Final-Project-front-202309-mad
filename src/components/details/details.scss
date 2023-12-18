@@ -1,0 +1,43 @@
+// .details-container {
+//   display: flex;
+//   flex-direction: column;
+//   width: 203px;
+//   height: 399px;
+//   text-align: center;
+// }
+
+// .film-about {
+//   display: flex;
+//   text-align: center;
+//   color: #e0d4bd;
+//   font-family: Kanit;
+//   font-size: 9px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+// }
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #e0d4bd;
+  font-family: Kanit;
+  background: url('../../../formcontainer.png') top right/cover no-repeat;
+}
+
+/* Estilos adicionales según tus necesidades */
+.details-container p {
+  margin: 14px; /* Ajusta el margen según sea necesario */
+}
+
+.film-image,
+.film-title,
+.film-director,
+.film-about,
+.film-decade,
+.film-country {
+  margin: 5px;
+}

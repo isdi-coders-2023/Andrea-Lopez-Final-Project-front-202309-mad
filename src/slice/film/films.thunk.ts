@@ -2,8 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { FilmsRepo } from '../../services/api.repo.films';
 import { Film } from '../../entities/film';
 
-// get all, create, update y delete
-
 type Params = {
   repo: FilmsRepo;
   newFilm: FormData;
@@ -16,23 +14,33 @@ export const loadFilmsThunk = createAsyncThunk<Film[], FilmsRepo>(
     return films;
   }
 );
-
-export const createFilmsThunk = createAsyncThunk<Film, Params>(
+export const createFilmThunk = createAsyncThunk<Film, Params>(
   'create',
   async ({ repo, newFilm }) => {
-    const films = await repo.createFilm(newFilm);
-    return films;
+    const finalFilm = await repo.createFilm(newFilm);
+    return finalFilm;
   }
 );
 
-export const updateSkinsThunk = createAsyncThunk<
+export const updateFilmsThunk = createAsyncThunk<
   Film,
   {
     repo: FilmsRepo;
     id: Film['id'];
-    updatedFilms: Partial<Film>;
+    updateFilm: FormData;
   }
->('update', async ({ repo, id, updatedFilms }) => {
-  const fi = await repo.updateFilm(id, updatedFilms);
-  return fi;
+>('update', async ({ repo, id, updateFilm }) => {
+  const finalFilm = await repo.updateFilm(id, updateFilm);
+  return finalFilm;
+});
+
+export const deleteFilmsThunk = createAsyncThunk<
+  Film['id'],
+  {
+    repo: FilmsRepo;
+    id: Film['id'];
+  }
+>('delete', async ({ repo, id }) => {
+  await repo.deleteFilm(id);
+  return id;
 });
