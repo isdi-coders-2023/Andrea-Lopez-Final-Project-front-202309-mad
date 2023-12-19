@@ -29,12 +29,12 @@ export default function AddFilm() {
             <input type="file" name="image" />
           </div>
           <button className="save-button" type="submit">
-            SAVE
+            CREATE FILM
           </button>
         </form>
       </div>
       <div className="cancel-button">
-        <Link to={'/profile/'}>
+        <Link to={'/home/'}>
           <button type="button">CANCEL</button>
         </Link>
       </div>

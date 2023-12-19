@@ -1,43 +1,27 @@
-// .details-container {
-//   display: flex;
-//   flex-direction: column;
-//   width: 203px;
-//   height: 399px;
-//   text-align: center;
-// }
-
-// .film-about {
-//   display: flex;
-//   text-align: center;
-//   color: #e0d4bd;
-//   font-family: Kanit;
-//   font-size: 9px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: normal;
-// }
-
 .details-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #e0d4bd;
-  font-family: Kanit;
-  background: url('../../../formcontainer.png') top right/cover no-repeat;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #4c4dcb;
 }
 
-/* Estilos adicionales según tus necesidades */
-.details-container p {
-  margin: 14px; /* Ajusta el margen según sea necesario */
+.film-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.film-image,
-.film-title,
 .film-director,
-.film-about,
 .film-decade,
 .film-country {
-  margin: 5px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.film-about {
+  font-size: 18px;
+  margin-bottom: 12px;
 }

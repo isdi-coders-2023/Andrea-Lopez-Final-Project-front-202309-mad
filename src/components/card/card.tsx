@@ -26,23 +26,22 @@ export function Card({ film }: Props) {
     <>
       {loggedUser && (
         <>
-          <div className="delete-button-container">
+          <div className="actions-buttons">
             <Link to={'/login'}></Link>
             <img
               onClick={handleDelete}
               role="button"
               src=" https://res.cloudinary.com/dgnncaecc/image/upload/v1702841652/trash_xulhgx.png"
-              width="19"
-              height="17"
+              width="20"
+              height="18"
               alt="delete-icon"
             />
-          </div>
-          <div className="update-button-container">
+
             <Link to={'/editfilm/' + film.id}>
               <img
                 role="button"
-                width="19"
-                height="17"
+                width="20"
+                height="18"
                 src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702840689/edit_button_jijeof.png"
                 alt="edit-icon"
                 onClick={handleUpdateFilm}

@@ -83,7 +83,7 @@ export default function EditFilm() {
           </div>
 
           <button className="save-button" type="submit">
-            SAVE
+            EDIT
           </button>
         </form>
       </div>

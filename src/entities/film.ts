@@ -8,5 +8,5 @@ export type Film = {
   decade: number;
   country: string;
   image: ImageData;
-  aurhor: User;
+  author: User;
 };

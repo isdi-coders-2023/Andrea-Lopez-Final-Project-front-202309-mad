@@ -7,8 +7,8 @@ import AddButton from '../create/add.button';
 export function HeaderHome() {
   const { loggedUser } = useSelector((state: RootState) => state.usersState);
   const location = useLocation();
-  const isUserFilmsRoute = location.pathname === '/profile/';
   const navigate = useNavigate();
+  const isUserFilms = location.pathname === '/userfilms/';
 
   return (
     <div>
@@ -47,9 +47,7 @@ export function HeaderHome() {
           </div>
 
           <p>Hola {loggedUser.name}</p>
-          {!isUserFilmsRoute && (
-            <button onClick={() => navigate('/profile/')}>MY LIST</button>
-          )}
+          <button>My Films</button>
         </div>
       )}
     </div>

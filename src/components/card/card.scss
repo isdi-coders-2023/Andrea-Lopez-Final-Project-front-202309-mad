@@ -6,6 +6,40 @@ article {
   justify-content: center;
 }
 
+button {
+  padding: 2%;
+}
+
+.hover {
+  transform: scale(1.05);
+}
+
+.card-container-text {
+  padding: 1rem;
+
+  .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .card-director {
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+img {
+  cursor: pointer;
+}
+
 .card-container {
-  padding: 1px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.actions-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
