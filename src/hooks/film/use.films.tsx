@@ -7,7 +7,6 @@ import {
   createFilmThunk,
   updateFilmsThunk,
   deleteFilmsThunk,
-  loadFilmsByPageThunk,
 } from '../../slice/film/films.thunk';
 import { Film } from '../../entities/film';
 import { setCurrentFilm } from '../../slice/film/films.slice';
@@ -16,7 +15,7 @@ export function useFilms() {
   const dispatch = useDispatch<AppDispatch>();
   const { token } = useSelector((state: RootState) => state.usersState);
 
-  const { films, currentFilm } = useSelector(
+  const { films, currentFilm, filmUpdateState } = useSelector(
     (state: RootState) => state.filmsState
   );
 
@@ -29,12 +28,6 @@ export function useFilms() {
       console.log((error as Error).message);
     }
   }, [repo, dispatch]);
-  const loadFilmsByPage = useCallback(
-    async (pageNumber: string) => {
-      dispatch(loadFilmsByPageThunk({ repo, pageNumber }));
-    },
-    [repo, dispatch]
-  );
 
   const createFilm = async (newFilm: FormData) => {
     try {
@@ -85,6 +78,6 @@ export function useFilms() {
     currentFilm,
     handleCurrentFilm,
     deleteFilm,
-    loadFilmsByPage,
+    filmUpdateState,
   };
 }

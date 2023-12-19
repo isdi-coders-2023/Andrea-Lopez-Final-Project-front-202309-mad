@@ -39,6 +39,7 @@ const filmsSlice = createSlice({
       state.filmsState = 'loading';
       return state;
     });
+
     builder.addCase(
       loadFilmsThunk.fulfilled,
       (state: FilmsState, { payload }: PayloadAction<Film[]>) => {
@@ -47,6 +48,7 @@ const filmsSlice = createSlice({
         return state;
       }
     );
+
     builder.addCase(loadFilmsThunk.rejected, (state: FilmsState) => {
       state.filmsState = 'error';
       return state;

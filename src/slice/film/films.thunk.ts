@@ -7,11 +7,6 @@ type Params = {
   newFilm: FormData;
 };
 
-type loadFilmsByPageThunkParams = {
-  repo: FilmsRepo;
-  pageNumber: string;
-};
-
 export const loadFilmsThunk = createAsyncThunk<Film[], FilmsRepo>(
   'load',
   async (repo) => {
@@ -26,14 +21,6 @@ export const createFilmThunk = createAsyncThunk<Film, Params>(
     return finalFilm;
   }
 );
-
-export const loadFilmsByPageThunk = createAsyncThunk<
-  Film[],
-  loadFilmsByPageThunkParams
->('load', async ({ repo, pageNumber }) => {
-  const films = await repo.getFilmsByPage(pageNumber);
-  return films;
-});
 
 export const updateFilmsThunk = createAsyncThunk<
   Film,

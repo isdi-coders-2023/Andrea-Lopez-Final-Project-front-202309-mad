@@ -11,13 +11,13 @@ export default function EditFilm() {
   const { id } = useParams();
   const findedFilm = films.find((film) => film.id === id);
 
-  const [findCar, setCar] = useState(findedFilm);
+  const [findFilm, setFilm] = useState(findedFilm);
 
   useEffect(() => {
-    if (findCar) {
-      setCar(findCar);
+    if (findFilm) {
+      setFilm(findFilm);
     }
-  }, [findCar]);
+  }, [findFilm]);
 
   useEffect(() => {
     loadFilms();
@@ -25,10 +25,12 @@ export default function EditFilm() {
   }, [filmUpdateState]);
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value } = event.target;
-    setCar((prevState) => ({
+    setFilm((prevState) => ({
       ...prevState!,
       [name]: value,
     }));
@@ -38,72 +40,57 @@ export default function EditFilm() {
     event.preventDefault();
     const element = event.target as HTMLFormElement;
     const formData = new FormData(element);
-    updateFilm(findCar!.id, formData);
-    navigate('/profile');
+    updateFilm(findFilm!.id, formData);
+    navigate('/home/');
   };
 
   return (
     <>
       <div className="container-edit-form">
-        <div className="form-edit-tittle">
-          <h3>Edit Film</h3>
-        </div>
-        <form
-          className="edit-form"
-          onSubmit={handleUpdateFilm}
-          aria-label="form"
-        >
+        <form className="edit-form" onSubmit={handleUpdateFilm} role="form">
           <input
             type="text"
             name="title"
-            value={findedFilm?.title}
+            // value={findedFilm?.title}
             onChange={handleInputChange}
             placeholder="title"
-            required
           />
           <input
             type="text"
             name="director"
-            value={findedFilm?.director}
+            // value={findedFilm?.director}
             onChange={handleInputChange}
             placeholder="director"
           />
           <input
             type="text"
             name="about"
-            value={findedFilm?.about}
+            // value={findedFilm?.about}
             onChange={handleInputChange}
             placeholder="about"
-            required
           />
           <input
             type="number"
             name="decade"
-            value={findedFilm?.decade}
+            // value={findedFilm?.about}
             onChange={handleInputChange}
             placeholder="decade"
-            required
-          />
-          <input
-            type="text"
-            name="country"
-            value={findedFilm?.country}
-            onChange={handleInputChange}
-            placeholder="country"
-            required
           />
           <div className="add-file" id="add-file">
-            <input type="file" name="image" aria-label="file" />
+            <div className="file-select" id="src-file1">
+              <input type="file" name="image" onChange={handleInputChange} />
+            </div>
           </div>
-          <div className="create-film-button">
-            <button type="submit">OK! MODIFY FILM</button>
-          </div>
-          <div className="cancel-create-film-button">
-            <Link to={'/home/'}>
-              <button type="button">CANCEL</button>
-            </Link>
-          </div>
+
+          <button className="save-button" type="submit">
+            SAVE
+          </button>
         </form>
+      </div>
+      <div className="cancel-button">
+        <Link to={'/home'}>
+          <button type="button">CANCEL</button>
+        </Link>
       </div>
     </>
   );

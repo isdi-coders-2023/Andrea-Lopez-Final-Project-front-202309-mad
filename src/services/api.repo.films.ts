@@ -26,7 +26,7 @@ export class FilmsRepo {
   async updateFilm(id: string, updatedFilm: FormData): Promise<Film> {
     const finalUrl = `${this.apiUrl}/${id}`;
     const response = await fetch(finalUrl, {
-      method: 'POST',
+      method: 'PATCH',
       body: updatedFilm,
       headers: {
         Authorization: 'Bearer ' + this.token,
@@ -42,12 +42,6 @@ export class FilmsRepo {
       method: 'DELETE',
       headers: { Authorization: 'Bearer' + this.token },
     });
-    if (!response.ok)
-      throw new Error(response.status + ' ' + response.statusText);
-    return response.json();
-  }
-  async getFilmsByPage(pageNumber: string): Promise<Film[]> {
-    const response = await fetch(this.apiUrl + `/page/${pageNumber}`);
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
     return response.json();
