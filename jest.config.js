@@ -39,5 +39,7 @@ export default {
     'src/components/user.films.tsx',
     'src/components/create/add.button.tsx',
     'src/components/routes/app.routes.tsx',
+    'src/components/details/details.test.tsx',
+    'src/components/details/details.tsx',
   ],
 };
