@@ -9,20 +9,20 @@ import {
 
 export type FilmsState = {
   films: Film[];
-  filmsState: 'idle' | 'loading' | 'error';
+  stateOption: 'idle' | 'loading' | 'error';
   currentFilm: Film | null;
   filmUpdateState: 'idle' | 'loading';
 };
 
 const initialState: FilmsState = {
   films: [],
-  filmsState: 'idle',
+  stateOption: 'idle',
   currentFilm: null,
   filmUpdateState: 'idle',
 };
 
 const filmsSlice = createSlice({
-  name: 'skins',
+  name: 'films',
   initialState,
   reducers: {
     setCurrentFilm: (
@@ -36,7 +36,7 @@ const filmsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(loadFilmsThunk.pending, (state: FilmsState) => {
-      state.filmsState = 'loading';
+      state.stateOption = 'loading';
       return state;
     });
 
@@ -44,13 +44,13 @@ const filmsSlice = createSlice({
       loadFilmsThunk.fulfilled,
       (state: FilmsState, { payload }: PayloadAction<Film[]>) => {
         state.films = payload;
-        state.filmsState = 'idle';
+        state.stateOption = 'idle';
         return state;
       }
     );
 
     builder.addCase(loadFilmsThunk.rejected, (state: FilmsState) => {
-      state.filmsState = 'error';
+      state.stateOption = 'error';
       return state;
     });
 

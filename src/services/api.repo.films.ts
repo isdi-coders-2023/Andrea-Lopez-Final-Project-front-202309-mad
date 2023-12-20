@@ -26,7 +26,7 @@ export class FilmsRepo {
   async updateFilm(id: string, updatedFilm: FormData): Promise<Film> {
     const finalUrl = `${this.apiUrl}/${id}`;
     const response = await fetch(finalUrl, {
-      method: 'PATCH',
+      method: 'POST',
       body: updatedFilm,
       headers: {
         Authorization: 'Bearer ' + this.token,

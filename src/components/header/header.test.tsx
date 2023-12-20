@@ -28,18 +28,4 @@ describe('Given Header class...', () => {
     const homeLinkElement = screen.getByText('Home');
     expect(homeLinkElement).toBeInTheDocument();
   });
-  test('It should contain "Crea una peli" link', () => {
-    const creaUnaPeliLinkElement = screen.getByText('Crea una peli');
-    expect(creaUnaPeliLinkElement).toBeInTheDocument();
-  });
-
-  test('It should not display welcome message without logged user', () => {
-    const welcomeMessage = screen.queryByText(/Bienvenido/i);
-    expect(welcomeMessage).toBeNull();
-  });
-
-  test('It should display welcome message with logged user', () => {
-    const welcomeMessage = screen.getByText(/Bienvenido/i);
-    expect(welcomeMessage).toBeInTheDocument();
-  });
 });

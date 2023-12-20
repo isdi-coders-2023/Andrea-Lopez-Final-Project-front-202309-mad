@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import './header.home.scss';
@@ -6,9 +6,6 @@ import AddButton from '../create/add.button';
 
 export function HeaderHome() {
   const { loggedUser } = useSelector((state: RootState) => state.usersState);
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isUserFilms = location.pathname === '/userfilms/';
 
   return (
     <div>
