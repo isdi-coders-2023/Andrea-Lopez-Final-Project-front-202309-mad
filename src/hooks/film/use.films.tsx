@@ -15,7 +15,7 @@ export function useFilms() {
   const dispatch = useDispatch<AppDispatch>();
   const { token } = useSelector((state: RootState) => state.usersState);
 
-  const { films, currentFilm } = useSelector(
+  const { films, currentFilm, filmUpdateState } = useSelector(
     (state: RootState) => state.filmsState
   );
 
@@ -78,5 +78,6 @@ export function useFilms() {
     currentFilm,
     handleCurrentFilm,
     deleteFilm,
+    filmUpdateState,
   };
 }

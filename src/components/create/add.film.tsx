@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFilms } from '../../hooks/film/use.films';
 import './add.film.scss';
 import { SyntheticEvent } from 'react';
@@ -18,9 +18,7 @@ export default function AddFilm() {
   return (
     <>
       <div className="container-create-form">
-        <div className="form-create-tittle">
-          <h3>Create New Film</h3>
-        </div>
+        <div className="form-create-tittle"></div>
         <form className="create-form" onSubmit={handleCreateFilm}>
           <input type="text" name="title" placeholder="title" required />
           <input type="text" name="director" placeholder="director" required />
@@ -28,15 +26,17 @@ export default function AddFilm() {
           <input type="number" name="decade" placeholder="decade" required />
           <input type="text" name="country" placeholder="country" required />
           <div className="add-file" id="add-file">
-            <input type="file" name="image" aria-label="file" />
+            <input type="file" name="image" />
           </div>
-          <div className="create-film-button">
-            <button type="submit">OK! CREATE FILM</button>
-          </div>
-          <div className="cancel-create-film-button">
-            <button type="button">CANCEL</button>
-          </div>
+          <button className="save-button" type="submit">
+            CREATE FILM
+          </button>
         </form>
+      </div>
+      <div className="cancel-button">
+        <Link to={'/home/'}>
+          <button type="button">CANCEL</button>
+        </Link>
       </div>
     </>
   );

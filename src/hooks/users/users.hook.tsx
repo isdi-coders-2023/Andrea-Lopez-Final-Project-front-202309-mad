@@ -22,10 +22,6 @@ export function usersHook() {
     dispatch(actions.logout());
   };
 
-  // const updateCurrentFilm = (id: string) => {
-  //   dispatch(updateUserThunk({ repo: repo, id: id }));
-  // };
-
   return {
     register,
     login,

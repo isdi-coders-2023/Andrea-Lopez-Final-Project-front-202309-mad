@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User } from '../../entities/user';
 import { usersHook } from '../../hooks/users/users.hook';
-import './register.scss';
+import './register.scss/';
 export function Register() {
   const [hasRegister, setHasRegister] = useState(false);
   const { register } = usersHook();
@@ -26,52 +26,44 @@ export function Register() {
   return (
     <>
       {!hasRegister && (
-        <div className="super-container">
-          <form
-            onSubmit={handleSubmit}
-            className="container-register-form"
-            aria-label="form"
-          >
-            <div className="register-form">
-              <h2 className="register-tittle">SIGN UP🎆</h2>
-              <input type="email" name="email" placeholder="E-mail" required />
-              <input
-                type="password"
-                name="passwd"
-                placeholder="Password"
-                required
+        <form
+          onSubmit={handleSubmit}
+          className="container-register-form"
+          aria-label="form"
+        >
+          <div className="register-form">
+            <input type="email" name="email" placeholder="E-mail" required />
+            <input
+              type="password"
+              name="passwd"
+              placeholder="Password"
+              required
+            />
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="text" name="surname" placeholder="Surname" required />
+            <input type="text" name="age" placeholder="Age" required />
+          </div>
+          <div className="signup-button">
+            <button type="submit">SIGN UP</button>
+          </div>
+          <div className="cancel-button">
+            <Link to={'/home/'}>
+              <img
+                role="button"
+                width="25"
+                height="25"
+                src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702842481/exit_button_hxxswj.png"
+                alt="cancel-icon"
               />
-              <input type="text" name="name" placeholder="Name" required />
-              <input
-                type="text"
-                name="surname"
-                placeholder="Surname"
-                required
-              />
-              <input type="text" name="age" placeholder="Age" required />
-
-              <div className="form-buttons">
-                <button type="submit">SIGN UP</button>
-              </div>
-              <div>
-                <Link to={'/home/'}>
-                  <button type="button">BACK HOME</button>
-                </Link>
-              </div>
-              <div></div>
-            </div>
-          </form>
-        </div>
+            </Link>
+          </div>
+        </form>
       )}
       {hasRegister && (
         <div>
-          <p>CONTRATS! SUCCESFUL SIGN UP!</p>
-          <p>WELCOME TO OUR COMMUNITY</p>
-          <Link to={'/home/'}>
-            <p>Come back Home</p>
-          </Link>
+          <p>SUCESSFUL</p>
           <Link to={'/login/'}>
-            <p>Login</p>
+            <p>Welcome!!</p>
           </Link>
         </div>
       )}

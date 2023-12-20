@@ -6,27 +6,30 @@
   background-color: #1c1a1d;
 }
 .register-form {
-  padding: 60px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   background: url('../../../formcontainer.png') center/cover no-repeat;
-  width: 420px;
-  height: 420px;
-
-  .h3 {
-    font-family: Kanit;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: #e0d4bd;
+  width: 450px;
+  height: 450px;
+  input {
+    width: 180px;
+    height: 40px;
+    margin-top: 1rem;
+    border-radius: 20px;
+    padding: 4px;
+    border: 3px solid #ccc;
+  }
+  .form-buttons {
+    padding: 4rem;
   }
 }
 
-input {
-  width: 245px;
-  height: 51px;
-  flex-shrink: 0;
+.signup-button,
+.cancel-button {
+  display: flex;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-left: 30rem;
 }

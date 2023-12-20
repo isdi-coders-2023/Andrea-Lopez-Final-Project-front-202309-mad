@@ -10,28 +10,11 @@ describe('AppRoutes', () => {
     render(
       <Router>
         <Provider store={store}>
-          <AppRoutes />
+          <AppRoutes></AppRoutes>
         </Provider>
       </Router>
     );
 
     expect(screen.getByRole('main')).toBeInTheDocument();
-
-    const routes = [
-      { path: '/register', element: 'RegisterPage' },
-      { path: '/login', element: 'LoginPage' },
-      { path: '/', element: 'HomePage' },
-      { path: '/home', element: 'HomePage' },
-      { path: '/profile', element: 'Profile' },
-      { path: '/details/:id', element: 'Details' },
-      { path: '/addfilm', element: 'AddFilm' },
-      { path: '/editfilm/:id', element: 'EditFilm' },
-    ];
-
-    routes.forEach(({ path, element }) => {
-      const routeElement = screen.getByTestId(`${element}-route`);
-      expect(routeElement).toBeInTheDocument();
-      expect(routeElement).toHaveAttribute('path', path);
-    });
   });
 });

@@ -36,6 +36,7 @@ const usersSlice = createSlice({
       (state: UsersState, { payload }: PayloadAction<loginResponse>) => {
         state.loggedUser = payload.user;
         state.token = payload.token;
+        state.loggedUser.films = payload.user.films;
       }
     );
 

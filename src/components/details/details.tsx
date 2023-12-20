@@ -1,9 +1,8 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 import './details.scss';
+import { useFilms } from '../../hooks/film/use.films';
 
 export default function Details() {
-  const { currentFilm } = useSelector((state: RootState) => state.filmsState);
+  const { currentFilm } = useFilms();
 
   return (
     <div className="details-container">

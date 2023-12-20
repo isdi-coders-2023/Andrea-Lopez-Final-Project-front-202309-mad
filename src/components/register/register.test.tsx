@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter as Router } from 'react-router-dom';
 
-jest.mock('../../hooks/users.hook', () => ({
+jest.mock('../../hooks/users/users.hook', () => ({
   usersHook: jest.fn().mockReturnValue({
     register: jest.fn(),
   }),

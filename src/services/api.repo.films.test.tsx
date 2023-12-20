@@ -27,7 +27,7 @@ describe('Given FilmsRepo class', () => {
     });
   });
 
-  describe('When we call getCars and response is bad', () => {
+  describe('When we call getFilms and response is bad', () => {
     const token = '';
     beforeEach(() => {
       const jsonMock = jest.fn().mockResolvedValue([]);
@@ -36,13 +36,27 @@ describe('Given FilmsRepo class', () => {
         json: jsonMock,
       });
     });
-    test('Then getCars should throw an error', async () => {
+    test('Then getFilms should throw an error', async () => {
       const repo = new FilmsRepo(token);
       await expect(repo.getFilms()).rejects.toThrow();
     });
   });
 
-  describe('When we call updateCar', () => {
+  describe('When we call deleteFilm and response is bad', () => {
+    const token = '';
+    beforeEach(() => {
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        ok: false,
+      });
+    });
+    test('Then deleteFilm should throw an error', async () => {
+      const filmId = '1';
+      const repo = new FilmsRepo(token);
+      await expect(repo.deleteFilm(filmId)).rejects.toThrow();
+    });
+  });
+
+  describe('When we call updateFilm', () => {
     beforeEach(() => {
       global.fetch = jest.fn().mockResolvedValueOnce({
         ok: true,
@@ -87,7 +101,7 @@ describe('Given FilmsRepo class', () => {
         ok: false,
       });
     });
-    test('Then deleteFilm should throw an error', async () => {
+    test('Then createFilm should throw an error', async () => {
       const repo = new FilmsRepo(token);
       await expect(repo.createFilm({} as FormData)).rejects.toThrow();
     });

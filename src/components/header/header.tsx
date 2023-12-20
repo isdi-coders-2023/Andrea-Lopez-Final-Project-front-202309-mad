@@ -1,5 +1,6 @@
 import './header.scss';
 import { HeaderHome } from '../header.home/header.home';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   const cloudinaryImageUrl =
@@ -7,14 +8,16 @@ export function Header() {
 
   return (
     <header>
-      <div className="logo-container">
-        <img
-          src={cloudinaryImageUrl}
-          alt="Header Logo"
-          width="100"
-          height="100"
-        />
-      </div>
+      <Link to={'/home/'}>
+        <div className="logo-container">
+          <img
+            src={cloudinaryImageUrl}
+            alt="Header Logo"
+            width="100"
+            height="100"
+          />
+        </div>
+      </Link>
       <HeaderHome></HeaderHome>
     </header>
   );
