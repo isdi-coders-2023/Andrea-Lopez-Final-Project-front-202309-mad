@@ -17,5 +17,8 @@ export default {
     'src / store / store.ts',
     'src / components / app / app.tsx',
     'src / services / images.ts',
+    'src/ slice/ film /films.thunk.ts',
+    'src/ services / api.repo.films.ts',
+    'src/ pages/ home.page.tsx',
   ],
 };
