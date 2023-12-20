@@ -41,5 +41,7 @@ export default {
     'src/components/routes/app.routes.tsx',
     'src/components/details/details.test.tsx',
     'src/components/details/details.tsx',
+    'src/components/header.home/header.home.tsx',
+    'src/hooks/film/use.films.tsx',
   ],
 };
