@@ -12,8 +12,8 @@
   flex-direction: column;
   align-items: center;
   background: url('../../../formcontainer.png') center/cover no-repeat;
-  width: 400px;
-  height: 400px;
+  width: 435px;
+  height: 430px;
 }
 
 input {
@@ -24,6 +24,17 @@ input {
   padding: 8px;
   border: 3px solid #ccc;
 }
-.login-buttons-container {
-  padding: 3rem;
+.login-button button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button button:hover {
+  background-color: #45a049;
 }

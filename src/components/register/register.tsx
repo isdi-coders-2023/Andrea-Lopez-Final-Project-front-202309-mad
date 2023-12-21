@@ -46,17 +46,6 @@ export function Register() {
           <div className="signup-button">
             <button type="submit">SIGN UP</button>
           </div>
-          <div className="cancel-button">
-            <Link to={'/home/'}>
-              <img
-                role="button"
-                width="25"
-                height="25"
-                src="https://res.cloudinary.com/dgnncaecc/image/upload/v1702842481/exit_button_hxxswj.png"
-                alt="cancel-icon"
-              />
-            </Link>
-          </div>
         </form>
       )}
       {hasRegister && (
