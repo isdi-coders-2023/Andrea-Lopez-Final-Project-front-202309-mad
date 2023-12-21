@@ -61,9 +61,9 @@ export function Register() {
       )}
       {hasRegister && (
         <div>
-          <p>SUCESSFUL</p>
+          <p className="success">SUCESSFUL</p>
           <Link to={'/login/'}>
-            <p>Welcome!!</p>
+            <p className="welcome">Welcome!!</p>
           </Link>
         </div>
       )}
